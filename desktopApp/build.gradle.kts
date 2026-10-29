@@ -17,12 +17,18 @@ dependencies {
 
 compose.desktop {
     application {
+        //javaHome = "/usr/lib/jvm/java-25-openjdk"
         mainClass = "com.example.auto_pipeliner.MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.example.auto_pipeliner"
+            targetFormats(TargetFormat.Rpm, TargetFormat.Deb, TargetFormat.Msi, TargetFormat.Dmg)
+            packageName = "auto-pipeliner"
             packageVersion = "1.0.0"
+
+            linux {
+                shortcut = true
+                menuGroup = "Development"
+            }
         }
     }
 }
